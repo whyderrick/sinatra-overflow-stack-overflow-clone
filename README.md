@@ -3,6 +3,8 @@
 ## Summary
 This is a clone of StackOverflow, written primarily in Ruby and built in Sinatra. It's back by a Postgres database, and uses custom CSS, jQuery and AJAX for front-end interactions.
 
+The team responsible for it is comprised of Zara Aslam, Derrick Carr, and Jason Warholic.
+
 ## Initial User Stories
 Written in alignment with [Behavior Driven Development/Design](https://medium.com/@jonatisokon/a-framework-for-user-stories-bc3dc323eca9#.x4z51sdo2).
 ### Account Features
