@@ -1,12 +1,14 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-	has_many :answers, :questions, :votes
-	has_many :comments, as: :commentable 
-	
+  has_many :questions, foreign_key: :asker_id
+  has_many :answers, foreign_key: :responder_id
+	has_many :comments, foreign_key: :commenter_id
+  has_many :votes, foreign_key: :voter_id
 
 
-  validates :email, :hashed_password, presence: true
+
+  validates :email, :hash_password, presence: true
   validates :email, uniqueness: true
 
 
@@ -18,11 +20,11 @@ end
 
 def password=(new_password)
 	@password = Password.create(new_password)
-	self.hash_password = @password 
+	self.hash_password = @password
 end
 
-def authenticate(password)
-	self.password == password
-end 
+def authenticate(input_password)
+	self.password == input_password
+end
 
 end
