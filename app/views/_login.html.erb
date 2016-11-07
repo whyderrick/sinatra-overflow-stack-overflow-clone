@@ -1,6 +1,6 @@
 <% if @user.errors %>
-  <% @user.errors.messages.each do |msg| %>
-    <p><%= msg %></p>
+  <% @user.errors do |error| %>
+    <p><%= error %></p>
   <% end %>
 <% end %>
 

@@ -16,9 +16,9 @@ post '/sessions' do
   @user ||= User.new
   if @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
-    redirect to 'questions'
+    redirect to '/questions'
   else
-    redirect to '/login?user=#{@user}'
+    erb :'_login.html'
   end
 end
 
