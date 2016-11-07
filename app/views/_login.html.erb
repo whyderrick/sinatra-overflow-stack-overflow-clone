@@ -1,0 +1,19 @@
+<% if @user.errors %>
+  <% @user.errors do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+<div class="form-container">
+  <form id="login_form" method="post" action="/sessions">
+    <label>
+      <span>Email:</span>
+      <input type="text" name= "user[email]">
+    </label>
+    <label>
+      <span>Password:</span>
+      <input type="password" name= "user[password]">
+    </label>
+    <input type="submit" value="Log into your account">
+  </form>
+</div>

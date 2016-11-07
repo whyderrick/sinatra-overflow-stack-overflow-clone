@@ -1,0 +1,21 @@
+<div class = "form-container">
+  <form id="signup-form" method="post" action="/users">
+    <label>
+      <span class="form-label">Name:</span>
+      <input id="name" type="text" name= "user[name]" value= " <%= @user.try(:name) %>" >
+    </label>
+    <label>
+      <span class="form-label">Username:</span>
+      <input id="username" type="text" name= "user[username]" value= " <%= @user.try(:username) %>" >
+    </label>
+    <label>
+      <span class="form-label">Email:</span>
+      <input id="email" type="text" name= "user[email]" value= " <%= @user.try(:email) %>" >
+    </label>
+    <label>
+      <span class="form-label">Password:</span>
+      <input id="password" type="password" name= "user[password]" >
+    </label>
+    <input type="submit" value="Create your account!">
+  </form>
+</div>

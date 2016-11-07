@@ -13,6 +13,7 @@ gem 'bcrypt'
 gem 'rake'
 
 gem 'shotgun', '~>0.9.1'
+gem 'rack', '1.5.2' # Was receiving a weird and much less helpful error message in the home environment so downgraded this
 
 group :test do
   gem 'shoulda-matchers'

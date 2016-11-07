@@ -12,19 +12,20 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
 
-include BCrypt
+  include BCrypt
 
-def password
-	@password ||= Password.new(self.hash_password)
-end
+  def password
+  	@password ||= Password.new(self.hash_password)
+  end
 
-def password=(new_password)
-	@password = Password.create(new_password)
-	self.hash_password = @password
-end
+  def password=(new_password)
+  	@password = Password.create(new_password)
+  	self.hash_password = @password
+  end
 
-def authenticate(input_password)
-	self.password == input_password
-end
+  def authenticate(input_password)
+    self.password == input_password
+    # Not clear on how to make this actually serve its errors to the view on failed auth.
+  end
 
 end
