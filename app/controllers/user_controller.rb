@@ -16,7 +16,7 @@ end
 post '/users' do
   @user = User.create(params[:user])
   if @user.save
-    session[user_id] = @user.id
+    session[:user_id] = @user.id
     redirect to '/questions'
   else
     #This is a terrible user experience, but in the scope of this project it's fine.

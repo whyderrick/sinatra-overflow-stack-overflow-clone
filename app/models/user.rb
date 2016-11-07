@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(input_password)
-    unless self.hash_password == input_password
+    self.password == input_password
     # Not clear on how to make this actually serve its errors to the view on failed auth.
   end
 

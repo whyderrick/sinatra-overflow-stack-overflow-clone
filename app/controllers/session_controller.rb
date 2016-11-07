@@ -14,6 +14,9 @@ end
 post '/sessions' do
   @user = User.find_by_email(params[:user][:email])
   @user ||= User.new
+  p @user
+  p params[:user][:password]
+  p @user.authenticate(params[:user][:password])
   if @user.authenticate(params[:user][:password])
     session[:user_id] = @user.id
     redirect to '/questions'
