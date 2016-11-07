@@ -1,0 +1,26 @@
+<h2>This is the page for all of the questions that exist on Ontogolically Speaking</h2>
+
+
+<% if @questions %>
+  <% @questions.each do |question| %>
+    <ul class= "question-list">
+      <li class= "question-title-tiem">
+        <a href= <%= "/questions/#{question.id}"%> >
+          <%= question.question_title %>
+        </a>
+      </li>
+      <li>
+        <a href= <%="/users/#{question.asker_id}"%> >
+          <%= question.asker.username %>
+        </a>
+      </li>
+      <!-- This is probably the moment I realized how awesome ActiveRecord's associations are. -->
+      <li>
+        <%= question.answers.count %> answers
+      </li>
+      <li>
+        <%= question.votes.count %> votes
+      </li>
+    </ul>
+  <% end %>
+<% end %>
