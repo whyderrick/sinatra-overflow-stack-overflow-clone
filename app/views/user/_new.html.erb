@@ -1,0 +1,35 @@
+<div class="form-container">
+  <% if @user.errors.any? %>
+    <section class="errors">
+      <ul>
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+
+  <form id="signup-form" class="flex flex-row" method="post" action="/users">
+    <label class="input-group col-1-3">
+      <input id="name" class="input-group-input" type="text" name="user[name]" value="<%= @user.try(:name) %>">
+      <span class="input-group-label">Name:</span>
+    </label>
+    <label class="input-group col-1-3">
+      <input id="username" class="input-group-input" type="text" name="user[username]" value="<%= @user.try(:username) %>">
+      <span class="input-group-label">Usernam:</span>
+    </label>
+
+    <label class="input-group col-1-3">
+      <input id="email" class="input-group-input" type="text" name="user[email]" value="<%= @user.try(:email) %>">
+      <span class="input-group-label">Email Address:</span>
+    </label>
+
+    <label class="input-group col-1-3">
+      <input id="password" class="input-group-input" type="text" name="user[input_password]" value="<%= @user.try(:input_password) %>">
+      <span class="input-group-label">Password:</span>
+    </label>
+
+    <button type="submit" class="button dark">Submit</button>
+  </form>
+</div>
