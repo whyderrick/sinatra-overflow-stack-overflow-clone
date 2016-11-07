@@ -1,22 +1,27 @@
 # Comments under the route represent the restful view file to serve
 
 get '/users' do
-  # /users/index
-  "This route should return a list of all users"
+  p session
+  if logged_in?
+    redirect to '/questions'
+  else
+    erb :"index.html"
+  end
 end
 
 get '/users/new' do
-  erb :'/new.html'
+  erb :"user/new.html"
 end
 
 post '/users' do
-  @User.create(params[:user])
-  if @User.save
-    sessions[user_id] = @User.id
+  @user = User.create(params[:user])
+  if @user.save
+    session[user_id] = @user.id
     redirect to '/questions'
   else
     #This is a terrible user experience, but in the scope of this project it's fine.
     redirect to '/users/new'
+  end
 end
 
 get '/users/:id' do
