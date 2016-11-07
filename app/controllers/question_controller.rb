@@ -1,13 +1,21 @@
 get '/questions' do
-  "This is the page for all of the questions that exist on Ontogolically Speaking"
+  @questions = Question.all
+  erb :'question/index.html'
 end
 
 get '/questions/new' do
-  "This page has a form to create new questions"
+  erb :'question/_new.html'
 end
 
-post '/questions/new' do
-  "This page creates a new question with information from the poster"
+post '/questions' do
+  p params
+  @question = Question.new(params[:question])
+  if @question.save
+    redirect to "/questions/#{@question.id}"
+  else
+    p "We couldn't save your question at this moment."
+    redirect to "/questions/new"
+  end
 end
 
 get '/questions/:id' do

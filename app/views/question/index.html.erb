@@ -1,0 +1,9 @@
+<h2>This is the page for all of the questions that exist on Ontogolically Speaking</h2>
+
+<% if @questions %>
+  <ul>
+  <%= @questions.each do |question| %>
+    <li> question.question_title </li>
+  <% end %>
+  </ul>
+<% end %>

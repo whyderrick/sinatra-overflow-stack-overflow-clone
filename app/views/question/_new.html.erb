@@ -1,0 +1,15 @@
+<div class="form-container">
+  <form id="new-question-form" action="/questions" method="post">
+    <label>
+      <span>Title:</span>
+      <input type="text" name="question[question_title]" placeholder="">
+    </label>
+    <label>
+      <span>Question:</span>
+      <input type="text" name="question[question_text]" placeholder="Enter your question here. Give lots of context.">
+      <!--  Ideally this is styled to have a very large text box or grabs from a WYSIWYG using JavaScript, but this ain't about that right now.-->
+    </label>
+    <input type="hidden" name="question[asker_id]" value= "<%= current_user.id %>" >
+    <input type="submit" value="Ask your question!">
+  </form>
+</div>
